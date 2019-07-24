@@ -17,7 +17,7 @@ for i  in l:
 #Scrapping from every city's page one by one and storing row contents in outputrows
 outputrows = []
 for x in cities:
-    print(x)
+    #print(x)
     count =0 
     pg = requests.get(html+x)
     sp = bs(pg.content,'html.parser') 
@@ -26,6 +26,7 @@ for x in cities:
     for tr in every: #checking for every row content
         columns = tr.find_all('td')
         row = []
+        #Avoiding the first row 
         for column in columns:
             row.append(column.text)
             #print(column.text)
